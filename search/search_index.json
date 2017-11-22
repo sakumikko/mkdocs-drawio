@@ -1,0 +1,29 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "Embedding draw.io diagrams to mkdocs\n\n\nRecently I wanted to include draw.io diagrams to our documentation in such way that that the diagrams would be versioned within the repository. \n\n\nThis is just simple demo to to show they can be embedded with the viewer.\n\n\nUsage\n\n\nCreate a \ndiv\n element with \ndata-mxgraph-path\n attribute pointing to your digram file.\n\n\n    <div class=\"dynamic-graph\" data-mxgraph-path=\"example.xml\"></div>\n\n\n\n\nImplementation\n\n\nThe footer file has been overwritten fith a simple script additions that will pick up all div elements with the attribute, fetch the associated diagram xml and then invoke \nGraphViewer\n to render the diagram.\n\n\nAn example diagram embedded",
+            "title": "Embedding draw.io diagrams to mkdocs"
+        },
+        {
+            "location": "/#embedding-drawio-diagrams-to-mkdocs",
+            "text": "Recently I wanted to include draw.io diagrams to our documentation in such way that that the diagrams would be versioned within the repository.   This is just simple demo to to show they can be embedded with the viewer.",
+            "title": "Embedding draw.io diagrams to mkdocs"
+        },
+        {
+            "location": "/#usage",
+            "text": "Create a  div  element with  data-mxgraph-path  attribute pointing to your digram file.      <div class=\"dynamic-graph\" data-mxgraph-path=\"example.xml\"></div>",
+            "title": "Usage"
+        },
+        {
+            "location": "/#implementation",
+            "text": "The footer file has been overwritten fith a simple script additions that will pick up all div elements with the attribute, fetch the associated diagram xml and then invoke  GraphViewer  to render the diagram.",
+            "title": "Implementation"
+        },
+        {
+            "location": "/#an-example-diagram-embedded",
+            "text": "",
+            "title": "An example diagram embedded"
+        }
+    ]
+}
