@@ -14,7 +14,7 @@ Create a `div` element with `data-mxgraph-path` attribute pointing to your digra
 
 ## Implementation
 
-The [footer file](https://github.com/sakumikko/mkdocs-drawio/blob/master/theme/partials/footer.html) has been overwritten fith a simple script additions that will pick up all div elements with the attribute, fetch the associated diagram xml and then invoke `GraphViewer` to render the diagram.
+The [footer file](https://github.com/sakumikko/mkdocs-drawio/blob/master/theme/partials/footer.html) has been overwritten with a simple script additions that will pick up all div elements with the attribute, fetch the associated diagram xml and then invoke `GraphViewer` to render the diagram.
 
 ```html
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
