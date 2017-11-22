@@ -1,4 +1,4 @@
-site_name: My Docs
+site_name: Embed draw.io diagram to mkdocs pages
 theme:
   name: 'material'
   custom_dir: 'theme'
