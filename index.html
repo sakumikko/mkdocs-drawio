@@ -32,7 +32,7 @@
     
     
       
-        <title>My Docs</title>
+        <title>Embed draw.io diagram to mkdocs pages</title>
       
     
     
@@ -69,7 +69,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="." title="My Docs" class="md-header-nav__button md-logo">
+        <a href="." title="Embed draw.io diagram to mkdocs pages" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -83,7 +83,7 @@
           
             
               <span class="md-header-nav__topic">
-                My Docs
+                Embed draw.io diagram to mkdocs pages
               </span>
               <span class="md-header-nav__topic">
                 Embedding draw.io diagrams to mkdocs
@@ -141,7 +141,7 @@
         <i class="md-icon"></i>
       
     </span>
-    My Docs
+    Embed draw.io diagram to mkdocs pages
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -273,7 +273,36 @@
 </code></pre>
 
 <h2 id="implementation">Implementation</h2>
-<p>The footer file has been overwritten fith a simple script additions that will pick up all div elements with the attribute, fetch the associated diagram xml and then invoke <code>GraphViewer</code> to render the diagram.</p>
+<p>The <a href="https://github.com/sakumikko/mkdocs-drawio/blob/master/theme/partials/footer.html">footer file</a> has been overwritten fith a simple script additions that will pick up all div elements with the attribute, fetch the associated diagram xml and then invoke <code>GraphViewer</code> to render the diagram.</p>
+<pre><code class="html">  &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+      var graphJson = { 
+          &quot;highlight&quot;:&quot;#0000ff&quot;,
+          &quot;nav&quot;:true,
+          &quot;resize&quot;:true,
+          &quot;toolbar&quot;: &quot;zoom layers lightbox&quot; 
+          }
+      window.onDrawioViewerLoad = function() {
+          $(&quot;div[data-mxgraph-path]&quot;).each(function(index, element){
+              fetch($(element).data(&quot;mxgraph-path&quot;))
+              .then(function(response){
+                  return response.text()
+              })
+              .then(function(text){
+                  var jsonText = JSON.stringify(
+                      Object.assign({}, graphJson, {xml: text})
+                      )
+                  element.setAttribute(&quot;data-mxgraph&quot;, jsonText) 
+                  GraphViewer.createViewerForElement(element)
+              })
+          })
+      }
+  &lt;/script&gt;
+  &lt;script src=&quot;https://www.draw.io/js/viewer.min.js&quot;&gt;
+  &lt;/script&gt;
+
+</code></pre>
+
 <h2 id="an-example-diagram-embedded">An example diagram embedded</h2>
 <p><div class="dynamic-graph" data-mxgraph-path="example.xml"></div></p>
                 
